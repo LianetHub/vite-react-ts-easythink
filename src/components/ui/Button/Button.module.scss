@@ -1,0 +1,77 @@
+.button {
+	font-family: inherit;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: normal;
+	margin: 0;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.25rem;
+	border-radius: 0.625rem;
+	padding: 0.875rem rem(21);
+	transition: 0.1s ease-in-out;
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&.primary {
+		color: $white;
+		background-color: $accent;
+
+		&:hover {
+			background-color: color.adjust($color: $accent, $lightness: -5%);
+		}
+	}
+
+	&.white {
+		color: $accent;
+		background-color: $white;
+		padding: 0.875rem 0.875rem 0.875rem 2.125rem;
+		border-radius: 3.75rem;
+		&:hover {
+			background-color: color.adjust($color: $accent, $lightness: 5%);
+		}
+	}
+	&Icon {
+		.white & {
+			background: linear-gradient(151deg, #8a60f3 -5.13%, #50388d 111.21%);
+			width: 3.75rem;
+			height: 3.75rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+		}
+	}
+	&.large {
+		font-size: 1.125rem;
+	}
+}
+
+// .small {
+// 	height: 48px;
+// 	width: 100%;
+
+// 	font-size: 14px;
+// 	font-weight: 500;
+// 	line-height: 18px;
+// }
+
+// .big {
+// 	width: 100%;
+// 	font-weight: 500;
+
+// 	height: 48px;
+// 	font-size: 14px;
+// 	line-height: math.div(16, 14);
+// 	@media (min-width: $md2) {
+// 		height: 62px;
+// 		font-size: 16px;
+// 		line-height: math.div(18, 16);
+// 	}
+// }

@@ -1,0 +1,30 @@
+// FONTS
+$fontfamily: "Unbounded";
+$font-poppins: "Poppins";
+
+// BREAKPOINTS
+
+$md1: 1439.98px;
+$md2: 1279.98px;
+$md3: 1023.98px;
+$md4: 719.98px;
+$md5: 379.98px;
+
+$minWidth: 375;
+$maxWidth: 1920;
+$maxWidthContainer: PxToRem(1362);
+$containerPadding: 30;
+
+// COLORS
+$white: #fff;
+$black: #2d2d2d;
+$accent: #8a60f3;
+
+// Z-INDEX
+
+$ui-index-1: 1; // Для наполняющих элементов в общем потоке
+$ui-index-2: 2; // Для наполняющих элементов в общем потоке
+$ui-index-3: 3; // Для масок
+$ui-index-4: 4; // Для сайдбаров
+$ui-index-5: 5; // Для модалок
+$ui-index-6: 6; // Для элементов, перекрывающих все

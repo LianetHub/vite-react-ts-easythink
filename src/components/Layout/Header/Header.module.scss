@@ -1,0 +1,32 @@
+.header {
+	background: rgba(255, 255, 255, 0.01);
+	backdrop-filter: blur(rem(20));
+	color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.75rem 0;
+
+	&Container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&Btn {
+	}
+}
+
+.menu {
+	margin-left: 4.5rem;
+	&List {
+		display: flex;
+		gap: rem(50);
+		font-size: 0.875rem;
+	}
+	&Item {
+	}
+	&Link {
+	}
+}
