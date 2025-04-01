@@ -37,7 +37,7 @@ export const SignUp: FC = () => {
         <section id={'sign-up'} className={css.sign}>
             <div className={clsx(css.signContainer, 'container')}>
                 <h2 className={clsx(css.signTitle, 'title', 'gradient-text')}>
-                    <span>From Sign-Up to</span> Success
+                    <span>From Sign-Up to</span>&nbsp;Success
                 </h2>
                 <ol className={css.signList}>
                     {signInSteps.map((step, index) => (

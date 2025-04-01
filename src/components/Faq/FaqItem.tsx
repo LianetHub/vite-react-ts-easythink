@@ -26,7 +26,9 @@ export const FaqItem: FC<FaqItemProps> = ({ question, answer }: {
         <li className={css.faqItem}
             onClick={faqItemClickHandler}>
             <h3 className={css.faqQuestion}>
-                {question}
+                <span className={css.faqQuestionText}>
+                    {question}
+                </span>
                 <span className={clsx(css.faqQuestionIcon, {
                     [css.open]: isOpen
                 })}>

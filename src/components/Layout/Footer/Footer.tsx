@@ -36,10 +36,6 @@ export const Footer: FC = () => {
                         <a href="#" className={css.footerLogo}>
                             <Logo />
                         </a>
-                        <div className={css.footerInfo}>
-                            <strong>Company’s registered address:</strong>
-                            <address>7-9 Riga Feraiou, LIZANTIA COURT, Office 310, Agioi Omologites, 1087 Nicosia, Cyprus.</address>
-                        </div>
                     </div>
                     <nav className={css.footerMenu}>
                         <ul className={css.footerMenuList}>
@@ -60,11 +56,17 @@ export const Footer: FC = () => {
                         >
                             To Easythink Panel
                         </Button>
-                        <div className={css.footerCopy}>
-                            HE <strong>443894</strong> <br />
-                            18th July, 2023 <br />
-                            © 2025 <strong>EASYTHINK LTD</strong>
-                        </div>
+                    </div>
+                </div>
+                <div className={css.footerBottom}>
+                    <div className={css.footerInfo}>
+                        <strong>Company’s registered address:</strong>
+                        <address>7-9 Riga Feraiou, LIZANTIA COURT, Office 310, Agioi Omologites, 1087 Nicosia, Cyprus.</address>
+                    </div>
+                    <div className={css.footerCopy}>
+                        HE <strong>443894</strong> <br />
+                        18th July, 2023 <br />
+                        © 2025 <strong>EASYTHINK LTD</strong>
                     </div>
                 </div>
             </div>

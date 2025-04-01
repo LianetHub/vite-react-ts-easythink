@@ -88,44 +88,46 @@ export const Services: FC = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className={css.servicesTabs}>
-                        {tabsBtns.map((tab, index) => (
-                            <Button
-                                key={index}
-                                size={'large'}
-                                className={clsx(css.servicesTab, {
-                                    'active': index === activeIndex,
-                                })}
-                                onClick={() => handleTabClick(index)}
-                            >
-                                {tab}
-                            </Button>
-                        ))}
+                    <div className={css.servicesSide}>
+                        <div className={css.servicesTabs}>
+                            {tabsBtns.map((tab, index) => (
+                                <Button
+                                    key={index}
+                                    size={'large'}
+                                    className={clsx(css.servicesTab, {
+                                        'active': index === activeIndex,
+                                    })}
+                                    onClick={() => handleTabClick(index)}
+                                >
+                                    {tab}
+                                </Button>
+                            ))}
+                        </div>
+                        <button
+                            type={'button'}
+                            aria-label={'Play Tabs'}
+                            className={css.servicesIndicator}
+                            onClick={() => setIsPlay(!isPlay)}
+                        >
+                            {isPlay ? <Pause /> : <Play />}
+                            <svg
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                className={css.servicesIndicatorCircle}>
+                                <circle
+                                    cx="20"
+                                    cy="20"
+                                    r="18"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1"
+                                    strokeDasharray="113"
+                                    strokeDashoffset={`${113 - (progress / 100) * 113}`}
+                                />
+                            </svg>
+                        </button>
                     </div>
-                    <button
-                        type={'button'}
-                        aria-label={'Play Tabs'}
-                        className={css.servicesIndicator}
-                        onClick={() => setIsPlay(!isPlay)}
-                    >
-                        {isPlay ? <Pause /> : <Play />}
-                        <svg
-                            width="40"
-                            height="40"
-                            viewBox="0 0 40 40"
-                            className={css.servicesIndicatorCircle}>
-                            <circle
-                                cx="20"
-                                cy="20"
-                                r="18"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1"
-                                strokeDasharray="113"
-                                strokeDashoffset={`${113 - (progress / 100) * 113}`}
-                            />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section>

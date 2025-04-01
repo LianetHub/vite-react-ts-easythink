@@ -11,28 +11,55 @@
 
 	&.scrolled {
 		.menuList {
-			color: #2d2d2d;
+			@media (min-width: $md2) {
+				color: #2d2d2d;
+			}
 		}
 		.headerLogo {
 			& svg {
-				& path {
-					fill: url(#paint0_linear_2148_2511);
+				& path,
+				circle {
+					fill: url(#paint1_linear_2148_2511);
+					@media (min-width: $md4) {
+						fill: url(#paint0_linear_2148_2511);
+					}
 				}
+			}
+		}
+		.headerMenuToggler {
+			color: #2d2d2d;
+			&.active {
+				color: $white;
 			}
 		}
 	}
 
 	&Logo {
 		& svg {
-			& path {
+			& path,
+			circle {
 				fill: #fff;
 			}
 		}
 		&:hover {
 			& svg {
-				& path {
-					fill: url(#paint0_linear_2148_2468) !important;
+				& path,
+				circle {
+					fill: url(#paint1_linear_2148_2468);
+					@media (min-width: $md4) {
+						fill: url(#paint0_linear_2148_2468) !important;
+					}
 				}
+			}
+		}
+		&Mobile {
+			@media (min-width: $md4) {
+				display: none;
+			}
+		}
+		&Tablet {
+			@media (max-width: $md4) {
+				display: none;
 			}
 		}
 	}
@@ -43,16 +70,82 @@
 		justify-content: space-between;
 	}
 
+	&Menu {
+		@media (max-width: $md2) {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			overflow-x: hidden;
+			overflow-y: auto;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+			width: 100vw;
+			height: 100vh;
+			background: rgba($color: $black, $alpha: 0.5);
+			opacity: 0;
+			visibility: hidden;
+			&.open {
+				opacity: 1;
+				visibility: visible;
+				.headerMenuWrapper {
+					transform: translateX(0);
+				}
+			}
+		}
+		@media (min-width: $md2) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex: 1 1 auto;
+		}
+	}
+
+	&MenuWrapper {
+		display: flex;
+		align-items: center;
+		flex: 1 1 auto;
+		@media (max-width: $md2) {
+			transform: translateX(100%);
+			transition: transform 0.3s ease;
+			margin-left: auto;
+			width: 100%;
+			max-width: rem(460);
+			height: 100%;
+			padding: 4rem 2rem 2rem;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: space-between;
+			background: url("/src/assets/images/promo-background.jpg") 0 0 / cover no-repeat;
+		}
+	}
+
+	&MenuToggler {
+		position: relative;
+		z-index: $ui-index-6;
+		@media (min-width: $md2) {
+			display: none;
+		}
+	}
+
 	&Btn {
 	}
 }
 
 .menu {
-	margin-left: 4.5rem;
+	@media (min-width: $md2) {
+		margin: 0 auto;
+		padding-left: 4.75rem;
+	}
 	&List {
 		display: flex;
-		gap: rem(50);
-		font-size: 0.875rem;
+		flex-direction: column;
+		font-size: 1.25rem;
+		gap: rem(30);
+		@media (min-width: $md2) {
+			gap: rem(50);
+			font-size: 0.875rem;
+			flex-direction: row;
+		}
 	}
 	&Item {
 	}

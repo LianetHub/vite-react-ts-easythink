@@ -56,8 +56,11 @@
 	&.white {
 		color: $accent;
 		background-color: $white;
-		padding: 0.875rem 0.875rem 0.875rem 2.125rem;
+		padding: 0.5rem 0.5rem 0.5rem 1.25rem;
 		border-radius: 3.75rem;
+		@media (min-width: $md2) {
+			padding: 0.875rem 0.875rem 0.875rem 2.125rem;
+		}
 		.buttonText {
 			&::after {
 				content: attr(data-title);
@@ -98,8 +101,8 @@
 		.white & {
 			position: relative;
 			z-index: $ui-index-1;
-			width: 3.75rem;
-			height: 3.75rem;
+			width: 2.5rem;
+			height: 2.5rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -118,21 +121,36 @@
 				transition: opacity 0.15s ease-in-out;
 				z-index: -1;
 			}
+			@media (min-width: $md2) {
+				width: 3.75rem;
+				height: 3.75rem;
+			}
 		}
 	}
+
 	&Text {
 		position: relative;
 		display: inline-block;
 		transition: 0.15s ease-in-out;
 	}
+
 	&.large {
-		font-size: 1.25rem;
-		padding: 1.5rem 2rem;
-		border-radius: 1.25rem;
+		font-size: 1rem;
+		padding: 1rem;
+		border-radius: 1rem;
+		min-height: rem(54);
+		@media (min-width: $md2) {
+			border-radius: 1.25rem;
+			padding: 1.5rem 2rem;
+			font-size: 1.25rem;
+		}
 	}
 
 	&.medium {
-		font-size: 1.125rem;
+		font-size: 0.875rem;
+		@media (min-width: $md2) {
+			font-size: 1.125rem;
+		}
 	}
 }
 

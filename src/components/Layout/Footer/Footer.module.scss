@@ -1,31 +1,72 @@
 .footer {
 	padding: 1.75rem 0 2.5rem;
+
 	&Container {
+		@media (max-width: $md2) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+		@media (max-width: $md4) {
+			grid-template-columns: 1fr;
+		}
 	}
 	&Body {
-		display: flex;
-		justify-content: space-between;
+		display: contents;
+		@media (min-width: $md2) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 	&Main {
-		padding-top: 0.75rem;
-		flex: 0 0 20rem;
+		order: -1;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (min-width: $md4) {
+			justify-content: flex-start;
+		}
+		@media (min-width: $md2) {
+			order: 0;
+		}
+		@media (min-width: $md1) {
+			flex: 0 0 15rem;
+		}
 	}
 	&Logo {
+		& svg {
+			& path {
+				fill: #8a60f3;
+			}
+		}
 	}
-	&Info {
-		margin-top: 2.5rem;
-		color: #333;
-		font-family: $font-poppins;
-		font-size: 0.875rem;
-	}
+
 	&Menu {
-		padding: 0.75rem 0;
 		font-size: 0.875rem;
+		@media (min-width: $md4) {
+			grid-row: span 2;
+		}
+		@media (min-width: $md2) {
+			grid-row: auto;
+		}
 	}
 	&MenuList {
 		display: flex;
+		flex-direction: column;
+
+		gap: 2rem;
 		align-items: center;
-		gap: 3.12rem;
+		@media (min-width: $md4) {
+			align-items: flex-start;
+		}
+		@media (min-width: $md2) {
+			align-items: center;
+			flex-direction: row;
+			gap: 3.12rem;
+		}
 	}
 	&MenuItem {
 	}
@@ -36,18 +77,60 @@
 		}
 	}
 	&Side {
-		flex: 0 0 20rem;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		text-align: right;
+		justify-content: center;
+
+		@media (min-width: $md4) {
+			order: -1;
+			justify-content: flex-end;
+		}
+		@media (min-width: $md2) {
+			order: 0;
+		}
+		@media (min-width: $md1) {
+			flex: 0 0 15rem;
+		}
 	}
 	&Btn {
+		width: 100%;
+		@media (max-width: $md2) {
+			min-width: 17.5rem;
+		}
+		@media (min-width: $md4) {
+			width: auto;
+		}
 	}
-	&Copy {
-		margin-top: 1.75rem;
+
+	&Bottom {
+		display: contents;
 		color: #333;
 		font-family: $font-poppins;
 		font-size: 0.875rem;
+		@media (min-width: $md2) {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 1.75rem;
+		}
+	}
+	&Info {
+		max-width: 15rem;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		@media (min-width: $md4) {
+			margin-right: 0;
+			text-align: right;
+		}
+		@media (min-width: $md2) {
+			text-align: left;
+			margin-left: 0;
+			max-width: 20rem;
+		}
+	}
+	&Copy {
+		text-align: center;
+		@media (min-width: $md4) {
+			text-align: right;
+		}
 	}
 }

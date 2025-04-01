@@ -18,13 +18,13 @@ export const Mission: FC = () => {
                             <span>Delivers</span> <br />
                             <span>Real Results</span>
                         </h2>
-                        <p className={css.missionDesc}>
-                            At Easythink, we believe that the right traffic fuels real business success. Our mission is to provide high-converting, transparent, and scalable traffic solutions tailored to your industry. With a focus on quality, data-driven optimization, and expert support, we help businesses maximize revenue and scale effortlessly. Whether you're entering a new market or optimizing an existing one, we deliver strategic traffic that drives real results.
-                        </p>
                     </div>
                     <div className={css.missionImage}>
                         <img src={missionIMage} alt="our company" />
                     </div>
+                    <p className={css.missionDesc}>
+                        At Easythink, we believe that the right traffic fuels real business success. Our mission is to provide high-converting, transparent, and scalable traffic solutions tailored to your industry. With a focus on quality, data-driven optimization, and expert support, we help businesses maximize revenue and scale effortlessly. Whether you're entering a new market or optimizing an existing one, we deliver strategic traffic that drives real results.
+                    </p>
                 </div>
             </div>
         </section >

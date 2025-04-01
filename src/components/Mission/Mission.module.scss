@@ -1,18 +1,28 @@
 .mission {
-	padding: 5rem 0 10rem;
+	padding: 2.5rem 0 3.25rem;
+	@media (min-width: $md2) {
+		padding: 5rem 0 10rem;
+	}
 
 	&Container {
 	}
 
 	&Body {
-		border-radius: 1.25rem;
-
-		padding: 2.5rem;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2rem;
 		background: url("/src/assets/images/mission-decor-grid.svg") 0 0 / cover no-repeat,
 			linear-gradient(163deg, rgba(215, 245, 255, 0.56) 1.52%, rgba(248, 253, 255, 0.8) 92.84%);
+		padding: 1rem;
+		border-radius: 0.5rem;
+		gap: 1rem;
+		@media (min-width: $md4) {
+			gap: 2rem;
+			grid-template-columns: 1fr 1.25fr;
+		}
+		@media (min-width: $md2) {
+			grid-template-columns: repeat(2, 1fr);
+			border-radius: 1.25rem;
+			padding: 2.5rem;
+		}
 	}
 
 	&Main {
@@ -31,8 +41,13 @@
 	}
 
 	&Title {
-		margin-top: 3.37rem;
 		text-align: left;
+		margin-top: 3.37rem;
+		margin-top: 1.5rem;
+		line-height: 140%;
+		@media (min-width: $md2) {
+			margin-top: 3.37rem;
+		}
 		& span {
 			background-image: linear-gradient(90deg, #18e9d9 -6.64%, #22b6fd 47.23%, #2b78ff 105.97%);
 			background-clip: text;
@@ -42,14 +57,27 @@
 	}
 
 	&Desc {
-		margin-top: 2rem;
 		font-family: $font-poppins;
 		font-size: 1rem;
 		line-height: 160%;
-		max-width: 34rem;
+		@media (min-width: $md4) {
+			grid-column: span 2;
+		}
+		@media (min-width: $md2) {
+			max-width: 34rem;
+			grid-column: auto;
+		}
 	}
 
 	&Image {
+		@media (max-width: $md2) {
+			@media (min-width: $md4) {
+				aspect-ratio: math.div(20.3, 11.9);
+			}
+		}
+		@media (min-width: $md2) {
+			grid-row: span 2;
+		}
 		& img {
 			border-radius: 0.625rem;
 			width: 100%;

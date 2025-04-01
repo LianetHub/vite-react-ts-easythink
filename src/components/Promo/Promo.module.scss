@@ -1,6 +1,6 @@
 .promo {
-	min-height: 100vh;
-	min-height: rem(920);
+	min-height: rem(880);
+
 	background: url("src/assets/images/lines.svg") center calc(100% - 5.25rem) / 100% auto no-repeat, url("src/assets/images/promo-background.jpg") 0 0 / cover no-repeat,
 		linear-gradient(20deg, rgba(0, 0, 0, 0) 2.93%, rgba(162, 108, 249, 0.2) 87.23%), #f4fbfd;
 	display: flex;
@@ -10,20 +10,28 @@
 	color: $white;
 	text-align: center;
 	position: relative;
-
+	@media (min-width: $md2) {
+		min-height: rem(920);
+	}
 	&::before {
 		content: "";
 		position: absolute;
-		bottom: -30%;
 		left: 50%;
 		transform: translateX(-50%);
-		height: 35.5rem;
-		width: 73.75rem;
+
 		border-radius: 750%;
 		opacity: 0.6;
 		background: rgba(138, 96, 243, 0.6);
 		filter: blur(rem(250));
 		z-index: -1;
+		height: 22.75rem;
+		width: 45rem;
+		bottom: -21%;
+		@media (min-width: $md2) {
+			bottom: -30%;
+			height: 35.5rem;
+			width: 73.75rem;
+		}
 	}
 
 	&Container {
@@ -41,21 +49,39 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding-bottom: 6rem;
+		@media (min-width: $md4) {
+			padding-bottom: 10rem;
+		}
+		@media (min-width: $md2) {
+			padding-bottom: 0;
+		}
 	}
 
 	&Title {
-		font-size: 5rem;
 		font-weight: 500;
+		font-size: 2.75rem;
+		@media (min-width: $md2) {
+			font-size: 5rem;
+		}
 	}
 
 	&Subtitle {
 		margin-top: 0.75rem;
-		font-size: 1.5rem;
 		line-height: 140%;
+		font-size: 1rem;
+		max-width: 14.25rem;
+		@media (min-width: $md2) {
+			max-width: 100%;
+			font-size: 1.5rem;
+		}
 	}
 
 	&Btn {
-		margin-top: 3.62rem;
+		margin-top: 7.94rem;
+		@media (min-width: $md4) {
+			margin-top: 3.62rem;
+		}
 	}
 }
 
