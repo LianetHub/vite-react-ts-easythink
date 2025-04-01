@@ -1,0 +1,45 @@
+.benefits {
+	padding: 5rem 0;
+	&Container {
+	}
+	&Title {
+	}
+	&List {
+		margin-top: 4rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+	}
+}
+
+.benefit {
+	position: relative;
+	padding: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 1.25rem;
+	background: url("/src/assets/images/benefit-card-bg.png") 0 0 / cover no-repeat, $white;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: rem(-1);
+		border-radius: rem(21);
+		background: linear-gradient(59deg, #fea35c 0.01%, #f9559c 45.62%, #8731f1 92.35%);
+		z-index: -1;
+	}
+
+	&Number {
+		font-size: 6rem;
+		font-weight: 500;
+		line-height: 130%;
+	}
+	&Desc {
+		margin-top: 0.75rem;
+		color: rgba(45, 45, 45, 0.8);
+		font-size: 1.5rem;
+		line-height: 130%;
+		max-width: 18rem;
+	}
+}

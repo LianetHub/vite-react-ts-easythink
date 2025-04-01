@@ -6,7 +6,7 @@ import clsx from "clsx";
 interface Props {
     className?: string;
     type?: 'primary' | 'white';
-    size?: 'small' | 'large';
+    size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
     icon?: ReactNode;
     onClick?: () => void;
@@ -27,7 +27,12 @@ export const Button: FC<PropsWithChildren<Props>> = ({
             className={clsx(css.button, className, css[type], css[size])}
             disabled={disabled}
             onClick={onClick}>
-            {children}
+            <span
+                className={css.buttonText}
+                data-title={children}
+            >
+                {children}
+            </span>
             {icon &&
                 <span className={css.buttonIcon}>
                     {icon}

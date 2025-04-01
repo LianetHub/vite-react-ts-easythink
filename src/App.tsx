@@ -1,5 +1,5 @@
 import { Header, Page, Footer } from "./components/Layout"
-import { Promo } from "./components/Promo"
+import { Promo, Services, Benefits, SignUp, Faq, Mission, Dignity } from "./components"
 
 export default function App() {
 
@@ -8,6 +8,12 @@ export default function App() {
       <Header />
       <Page>
         <Promo />
+        <Services />
+        <Benefits />
+        <SignUp />
+        <Dignity />
+        <Faq />
+        <Mission />
       </Page>
       <Footer />
     </>

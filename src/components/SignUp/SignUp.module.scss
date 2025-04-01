@@ -1,0 +1,73 @@
+.sign {
+	padding: 5rem 0;
+	position: relative;
+	z-index: $ui-index-1;
+	background: url("/src/assets/images/sign-bg-decor.svg") 0 0 / cover no-repeat;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: -3.75rem;
+		width: 37.6875rem;
+		height: 28.6875rem;
+		border-radius: 50%;
+		background: rgba($color: #febf9e, $alpha: 0.6);
+		pointer-events: none;
+		filter: blur(rem(250));
+	}
+
+	&Container {
+	}
+
+	&Title {
+	}
+
+	&List {
+		margin-top: 4.31rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 5rem;
+		row-gap: 2.5rem;
+		max-width: 76rem;
+		margin-inline: auto;
+	}
+
+	&Item {
+		counter-increment: num;
+		padding-left: 6.5rem;
+		position: relative;
+
+		&::before {
+			content: counter(num);
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #fff;
+			text-align: center;
+			font-size: 1.5rem;
+			display: flex;
+			width: 4.5rem;
+			height: 4.5rem;
+			flex-direction: column;
+			justify-content: center;
+			flex-shrink: 0;
+			border-radius: 50%;
+			background: linear-gradient(131deg, #8a60f3 -13.9%, #50388d 159.33%);
+		}
+	}
+
+	&ItemTitle {
+		font-size: 1.5rem;
+		font-weight: 500;
+		line-height: 130%;
+	}
+
+	&ItemDesc {
+		margin-top: 0.75rem;
+		color: #333;
+		font-family: $font-poppins;
+		font-size: 1rem;
+		line-height: 160%;
+	}
+}

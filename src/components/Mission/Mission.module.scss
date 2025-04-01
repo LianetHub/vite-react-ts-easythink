@@ -1,0 +1,60 @@
+.mission {
+	padding: 5rem 0 10rem;
+
+	&Container {
+	}
+
+	&Body {
+		border-radius: 1.25rem;
+
+		padding: 2.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		background: url("/src/assets/images/mission-decor-grid.svg") 0 0 / cover no-repeat,
+			linear-gradient(163deg, rgba(215, 245, 255, 0.56) 1.52%, rgba(248, 253, 255, 0.8) 92.84%);
+	}
+
+	&Main {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&Label {
+		color: #2d2d2d;
+		font-size: 1rem;
+		padding: 0.75rem 1.12rem;
+		border-radius: 3.75rem;
+		border: rem(1) solid;
+		box-shadow: 0 rem(4) rem(60) 0 rgba(0, 0, 0, 0.04);
+	}
+
+	&Title {
+		margin-top: 3.37rem;
+		text-align: left;
+		& span {
+			background-image: linear-gradient(90deg, #18e9d9 -6.64%, #22b6fd 47.23%, #2b78ff 105.97%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+
+	&Desc {
+		margin-top: 2rem;
+		font-family: $font-poppins;
+		font-size: 1rem;
+		line-height: 160%;
+		max-width: 34rem;
+	}
+
+	&Image {
+		& img {
+			border-radius: 0.625rem;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

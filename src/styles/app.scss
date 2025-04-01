@@ -11,8 +11,7 @@ body {
 	min-height: 100%;
 	line-height: normal;
 	color: $black;
-	background-color: #fdfdfd;
-	margin-right: 0 !important;
+	background-color: $white;
 	&:has(.menu.active) {
 		@media (max-width: $md3) {
 			overflow: hidden;
@@ -55,11 +54,39 @@ body {
 	}
 	@media (min-width: $md1) {
 		padding: 0 2.5rem;
-		max-width: $maxWidthContainer;
+		max-width: rem($maxWidthContainer);
 	}
 
 	&.container--fluid {
 		max-width: rem(1920);
+	}
+}
+
+.title {
+	text-align: center;
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 120%;
+}
+
+.gradient-text {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	background-image: linear-gradient(90deg, #ffb14f -6.64%, #f748a6 47.23%, #772dfa 105.97%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	& span {
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+		background-image: linear-gradient(90deg, $black -6.64%, $black 105.97%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 }
 

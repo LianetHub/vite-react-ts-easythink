@@ -1,0 +1,72 @@
+.services {
+	margin-top: -5.5rem;
+	position: relative;
+	z-index: $ui-index-2;
+	padding: 0 0 5rem 0;
+
+	&Container {
+	}
+	&Body {
+		border-radius: 1.25rem;
+		background: $white;
+		box-shadow: 0 rem(4) rem(60) 0 rgba(0, 0, 0, 0.04);
+		max-width: 67.5rem;
+		margin: 0 auto;
+		padding: 2.5rem;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+		min-height: 20.875rem;
+	}
+	&Content {
+		flex: 0 0 calc(50% - 1.5rem);
+	}
+	&Title {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+	&List {
+		margin-top: 0.88rem;
+		line-height: 165%;
+		max-width: 25rem;
+		font-family: $font-poppins;
+	}
+	&ListItem {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+	&Tabs {
+		flex: 0 0 calc(50% - 4rem);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+	&Tab {
+	}
+	&Indicator {
+		position: relative;
+		width: 2.5rem;
+		height: 2.5rem;
+		flex-shrink: 0;
+		align-self: flex-end;
+		color: $grey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: color 0.3s ease;
+		&:hover {
+			color: $black;
+		}
+	}
+	&IndicatorCircle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: rotate(-90deg);
+	}
+}

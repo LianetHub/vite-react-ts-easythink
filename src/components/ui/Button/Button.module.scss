@@ -1,4 +1,6 @@
 .button {
+	position: relative;
+	z-index: $ui-index-1;
 	font-family: inherit;
 	font-size: 0.875rem;
 	font-weight: 400;
@@ -11,8 +13,9 @@
 	gap: 1.25rem;
 	border-radius: 0.625rem;
 	padding: 0.875rem rem(21);
-	transition: 0.1s ease-in-out;
+	transition: 0.15s ease-in-out;
 	cursor: pointer;
+	overflow: hidden;
 
 	&:disabled {
 		opacity: 0.5;
@@ -23,8 +26,30 @@
 		color: $white;
 		background-color: $accent;
 
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(151deg, #fea35c -5.22%, #f9559c 55.31%, #8731f1 117.31%);
+			z-index: -1;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
 		&:hover {
-			background-color: color.adjust($color: $accent, $lightness: -5%);
+			&::before {
+				opacity: 1;
+			}
+		}
+		&:global {
+			&.active {
+				&::before {
+					opacity: 1;
+				}
+			}
 		}
 	}
 
@@ -33,22 +58,80 @@
 		background-color: $white;
 		padding: 0.875rem 0.875rem 0.875rem 2.125rem;
 		border-radius: 3.75rem;
+		.buttonText {
+			&::after {
+				content: attr(data-title);
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				background-image: linear-gradient(151deg, #fea35c -5.22%, #f9559c 55.31%, #8731f1 117.31%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				opacity: 0;
+				transition: 0.15s ease-in-out;
+			}
+		}
+		.buttonIcon {
+			background: linear-gradient(151deg, #fea35c -5.22%, #f9559c 55.31%, #8731f1 117.31%);
+		}
 		&:hover {
-			background-color: color.adjust($color: $accent, $lightness: 5%);
+			.buttonText {
+				background-image: linear-gradient(151deg, #fea35c -5.22%, #f9559c 55.31%, #8731f1 117.31%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				&::after {
+					opacity: 1;
+				}
+			}
+			.buttonIcon {
+				&::before {
+					opacity: 0;
+				}
+			}
 		}
 	}
+
 	&Icon {
 		.white & {
-			background: linear-gradient(151deg, #8a60f3 -5.13%, #50388d 111.21%);
+			position: relative;
+			z-index: $ui-index-1;
 			width: 3.75rem;
 			height: 3.75rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
+			color: $white;
+			transition: 0.15s ease-in-out;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(151deg, #8a60f3 -5.13%, #50388d 111.21%);
+				border-radius: 50%;
+				transition: opacity 0.15s ease-in-out;
+				z-index: -1;
+			}
 		}
 	}
+	&Text {
+		position: relative;
+		display: inline-block;
+		transition: 0.15s ease-in-out;
+	}
 	&.large {
+		font-size: 1.25rem;
+		padding: 1.5rem 2rem;
+		border-radius: 1.25rem;
+	}
+
+	&.medium {
 		font-size: 1.125rem;
 	}
 }
