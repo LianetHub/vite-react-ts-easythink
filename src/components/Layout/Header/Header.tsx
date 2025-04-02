@@ -14,9 +14,18 @@ export const Header: FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
 
+
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
+            const servicesTop = document.body.getAttribute('data-offset');
+            const parsedServicesTop = parseFloat(servicesTop ?? '0');
+
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            const finalServicesTop = parsedServicesTop !== 0 ? parsedServicesTop - headerHeight : 0;
+
+            setIsScrolled(window.scrollY > finalServicesTop);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -78,6 +87,7 @@ export const Header: FC = () => {
                             </ul>
                         </nav>
                         <Button
+                            href={"https://panel.easythink.dev/"}
                             className={css.headerBtn}
                             icon={<ArrowRight />}
                         >

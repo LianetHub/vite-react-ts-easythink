@@ -1,9 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useRef } from 'react';
 import css from './Benefits.module.scss';
 import clsx from 'clsx';
 import { NumberAnimator } from './NumberAnimation';
-
-
 
 export const Benefits: FC = () => {
 
@@ -22,8 +20,7 @@ export const Benefits: FC = () => {
         },
     ];
 
-
-
+    const benefitsListRef = useRef<HTMLUListElement | null>(null);
     const [isInView, setIsInView] = useState(false);
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -34,18 +31,18 @@ export const Benefits: FC = () => {
     };
 
     useEffect(() => {
+
         const observer = new IntersectionObserver(handleIntersection, {
-            threshold: 0.1,
+            threshold: 0.5,
         });
 
-        const element = document.getElementById('benefits');
-        if (element) {
-            observer.observe(element);
+        if (benefitsListRef.current) {
+            observer.observe(benefitsListRef.current);
         }
 
         return () => {
-            if (element) {
-                observer.unobserve(element);
+            if (benefitsListRef.current) {
+                observer.unobserve(benefitsListRef.current);
             }
         };
     }, []);
@@ -56,7 +53,7 @@ export const Benefits: FC = () => {
                 <h2 className={clsx(css.benefitsTitle, 'title')}>
                     <span className='gradient-text'><span>Easythink the</span> Easy Way</span> <br /> to Grow Your Business
                 </h2>
-                <ul className={css.benefitsList}>
+                <ul className={css.benefitsList} ref={benefitsListRef}>
                     {benefitsData.map((benefit, index) => (
                         <li key={index} className={css.benefit}>
                             <div
@@ -74,6 +71,6 @@ export const Benefits: FC = () => {
                     ))}
                 </ul>
             </div>
-        </section >
+        </section>
     );
-}
+};

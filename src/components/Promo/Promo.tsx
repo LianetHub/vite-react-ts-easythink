@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC } from 'react';
 import css from './Promo.module.scss';
 import clsx from 'clsx';
 import { Button } from '@ui/Button';
@@ -19,10 +19,6 @@ interface Line {
 
 export const Promo: FC = () => {
 
-    const [isIntroVisible, setIsIntroVisible] = useState(false);
-
-    const introRef = useRef(null);
-
 
     const lines: Line[] = Array.from({ length: 3 }, (_, lineId) => ({
         id: lineId,
@@ -34,30 +30,9 @@ export const Promo: FC = () => {
     }));
 
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            setIsIntroVisible(entry.isIntersecting);
-        }, { threshold: 0.1 });
-
-        if (introRef.current) {
-            observer.observe(introRef.current);
-        }
-
-        return () => {
-            if (introRef.current) {
-                observer.unobserve(introRef.current);
-            }
-        };
-    }, [setIsIntroVisible]);
-
-
 
     return (
-        <section
-            ref={introRef}
-            className={clsx(css.promo, { [css.visible]: isIntroVisible })}
-        >
+        <section className={clsx(css.promo)}>
             <div className={clsx(css.promoContainer, 'container')}>
                 <div className={css.promoOffer}>
                     <h1 className={css.promoTitle}>
@@ -67,6 +42,7 @@ export const Promo: FC = () => {
                         High-Converting Traffic, Made Easy
                     </p>
                     <Button
+                        href={"https://panel.easythink.dev/"}
                         className={css.promoBtn}
                         type={'white'}
                         icon={<ArrowRight />}

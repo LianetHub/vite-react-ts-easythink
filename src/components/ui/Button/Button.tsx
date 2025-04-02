@@ -2,7 +2,6 @@ import { FC, PropsWithChildren, ReactNode } from "react";
 import css from './Button.module.scss';
 import clsx from "clsx";
 
-
 interface Props {
     className?: string;
     type?: 'primary' | 'white';
@@ -10,6 +9,7 @@ interface Props {
     disabled?: boolean;
     icon?: ReactNode;
     onClick?: () => void;
+    href?: string;
 }
 
 export const Button: FC<PropsWithChildren<Props>> = ({
@@ -19,25 +19,20 @@ export const Button: FC<PropsWithChildren<Props>> = ({
     disabled = false,
     icon,
     onClick,
+    href,
     children
 }) => {
+    const Component = href ? 'a' : 'button';
 
     return (
-        <button
-            className={clsx(css.button, className, css[type], css[size])}
-            disabled={disabled}
-            onClick={onClick}>
-            <span
-                className={css.buttonText}
-                data-title={children}
-            >
+        <Component
+            className={clsx(css.button, className, css[type], css[size], { [css.disabled]: disabled })}
+            {...(href ? { href } : { disabled, onClick })}
+        >
+            <span className={css.buttonText} data-title={children}>
                 {children}
             </span>
-            {icon &&
-                <span className={css.buttonIcon}>
-                    {icon}
-                </span>
-            }
-        </button>
+            {icon && <span className={css.buttonIcon}>{icon}</span>}
+        </Component>
     );
 }

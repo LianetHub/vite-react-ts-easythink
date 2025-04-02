@@ -7,7 +7,7 @@ export const NumberAnimator: FC<{ targetNumber: string }> = ({ targetNumber }) =
         const target = parseInt(targetNumber.replace(/\D/g, ''), 10);
         let start = 0;
         const end = target;
-        const duration = 2;
+        const duration = 3;
         const increment = end / (duration * 60);
 
         const animateNumber = () => {

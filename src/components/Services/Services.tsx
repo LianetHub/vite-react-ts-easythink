@@ -67,8 +67,18 @@ export const Services: FC = () => {
         setProgress(0);
     };
 
+    const servicesRef = useRef<HTMLElement | null>(null);
+
+    useEffect(() => {
+        if (servicesRef.current) {
+            const offset = servicesRef.current.getBoundingClientRect().top + window.scrollY;
+            document.body.setAttribute('data-offset', JSON.stringify(offset));
+        }
+
+    }, []);
+
     return (
-        <section className={css.services}>
+        <section className={css.services} ref={servicesRef}>
             <div className={clsx(css.servicesContainer, 'container')}>
                 <div className={css.servicesBody}>
                     <div className={css.servicesContent}>

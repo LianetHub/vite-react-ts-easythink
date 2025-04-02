@@ -51,6 +51,7 @@ export const Footer: FC = () => {
                     </nav>
                     <div className={css.footerSide}>
                         <Button
+                            href={"https://panel.easythink.dev/"}
                             className={css.footerBtn}
                             icon={<ArrowRight />}
                         >
